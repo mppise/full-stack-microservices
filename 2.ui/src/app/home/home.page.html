@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-avatar slot="start">
+      <ion-img src="../assets/icons/online-shopping-cart.png"></ion-img>
+    </ion-avatar>
+    <ion-title>
+      Online Store
+    </ion-title>
+
+    <ion-fab horizontal="end" slot="end" *ngIf="temporaryCart.length">
+      <ion-fab-button color="danger" [routerLink]="['/cart']">
+        <ion-icon name="cart"></ion-icon>
+        {{temporaryCart.length}}
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size-xs="12" size-sm="6" size-lg="4" size-xl="2" *ngFor="let product of products; let i=index">
+        <ion-card class="ion-no-margin">
+          <ion-img [src]="product.imgUrl">
+          </ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>SKU: {{product.product_id}}</ion-card-subtitle>
+            <ion-card-title>{{product.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button fill="clear">
+                  {{product.price | currency:"USD":true:"1.2"}}
+                </ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button color="primary" (click)="addToCart(product, i)" [disabled]="product.inCart">
+                  Add
+                  <ion-icon slot="end" name="cart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-text color="medium">{{version}}</ion-text>
+    <ion-button size="small" fill="clear" color="medium" slot="start" (click)="resetData()">[Reset]</ion-button>
+    <ion-button size="small" fill="clear" color="medium" slot="end" [routerLink]="['/my-orders']">My Orders</ion-button>
+  </ion-toolbar>
+</ion-footer>

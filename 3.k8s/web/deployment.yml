@@ -1,0 +1,34 @@
+kind: Deployment
+apiVersion: apps/v1
+# ----------------------
+metadata:
+    name: web-app
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: web-app
+    template:
+        metadata:
+            labels:
+                app: web-app
+        spec:
+            containers:
+                - name: web-app
+                  image: mppise/web-app:1.1.0
+                  ports:
+                      - containerPort: 80
+
+---
+kind: Service
+apiVersion: v1
+# -----------------
+metadata:
+    name: web-app-svc
+spec:
+    selector:
+        app: web-app
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 80

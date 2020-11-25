@@ -1,0 +1,48 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+# ---------------------------------------
+metadata:
+    name: online-store-apis
+    annotations:
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+    rules:
+        - http:
+            paths:
+                - path: /api/product(/|$)(.*)
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: product-svc
+                        port:
+                            number: 8080
+                - path: /api/order(/|$)(.*)
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: order-svc
+                        port:
+                            number: 8080
+
+---
+
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+# ---------------------------------------
+metadata:
+    name: online-store-web
+    annotations:
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+    rules:
+        - http:
+            paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: web-app-svc
+                        port:
+                            number: 80

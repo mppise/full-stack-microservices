@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-avatar slot="start">
+      <ion-img src="../assets/icons/online-shopping-cart.png"></ion-img>
+    </ion-avatar>
+    <ion-title>
+      Online Store
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1>My Orders</h1>
+
+  <ion-list *ngFor="let order of orders; let i=index">
+
+    <ion-card>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label color="dark">
+            Order #: {{order.order_id}}
+            <p>{{order.order_date | date}}</p>
+          </ion-label>
+          <ion-button size="large" slot="end" fill="clear" color="dark">{{order.total | currency:"USD":true:"1.2"}}
+          </ion-button>
+        </ion-item-divider>
+        <ion-item-divider *ngFor="let item of order.items">
+          <ion-avatar slot="start">
+            <ion-img [src]="item.imgUrl"></ion-img>
+          </ion-avatar>
+          {{item.name}}
+          <ion-button slot="end" fill="clear" color="dark">{{item.price | currency:"USD":true:"1.2"}}
+          </ion-button>
+        </ion-item-divider>
+      </ion-item-group>
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button size="small" fill="clear" color="medium" slot="end" [routerLink]="['/home']">Home</ion-button>
+  </ion-toolbar>
+</ion-footer>

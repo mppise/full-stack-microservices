@@ -1,0 +1,12 @@
+{
+    "database": {
+        "user": "root",
+        "password": "paSSw0rd",
+        "server": {
+            "development": "localhost",
+            "production": "mongodb-svc"
+        },
+        "port": "27017",
+        "schema": "store"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "order",
+  "version": "1.1.0",
+  "description": "Order microservices for Online Store",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mangesh Pise <mppise@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  }
+}
