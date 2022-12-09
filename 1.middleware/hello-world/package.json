@@ -1,13 +1,6 @@
 {
   "name": "hello-world",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "end-of-stream": "^1.4.4",
     "from2": "^2.3.0",
