@@ -14,7 +14,7 @@ kind: GitRepository
 metadata:
   name: hello-world
 spec:
-  url: "https://github.com/kyma-project/examples.git"
+  url: "https://github.com/mppise/full-stack-microservices/tree/main/3.k8s/function"
   auth:
     type: "basic"
     secretName: "github-secret"
