@@ -1,5 +1,8 @@
 module.exports = {
    main: function(event, context) {
-     return "hello";
+     return JSON.stringify({
+      "event": event,
+      "context": context
+     });
    }
  }
