@@ -5,33 +5,26 @@ type: Opaque
 metadata:
     name: github-secret
 data:
-    usrername: bXBwaXNlQGdtYWlsLmNvbQ==
+    username: bXBwaXNlQGdtYWlsLmNvbQ==
     password: bnVxaHVoLTNaeXZreS1rZWh3aWM=
 
 ---
-apiVersion: serverless.kyma-project.io/v1alpha1
-kind: GitRepository
-metadata:
-  name: hello-world
-spec:
-  url: "https://github.com/mppise/full-stack-microservices.git"
-  auth:
-    type: "basic"
-    secretName: "github-secret"
-
----
-apiVersion: serverless.kyma-project.io/v1alpha1
+apiVersion: serverless.kyma-project.io/v1alpha2
 kind: Function
 metadata:
+  name: hello-world
   labels:
     app.kubernetes.io/name: hello-world
-  name: hello-world
 spec:
-  type: git
   runtime: nodejs14
-  source: hello-world
-  reference: main
-  baseDir: 1.middleware/hello-world/
+  source:
+    gitRepository:
+      url: "https://github.com/mppise/full-stack-microservices.git"
+      baseDir: "1.middleware/hello-world/"
+      reference: "main"
+      auth:
+        type: "basic"
+        secretName: "github-secret"
 
 ---
 apiVersion: gateway.kyma-project.io/v1beta1
