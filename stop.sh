@@ -34,14 +34,10 @@ kubectl delete -f 3.k8s/common/secret.yml
 kubectl get secret
 echo
 echo
-kubectl delete -f 3.k8s/common/ingress.yml
-kubectl get ingress
-echo
-echo
-kubectl delete -f 3.k8s/common/kyma-apirules.yml
-kubectl get ingress
-echo
-echo
+# kubectl delete -f 3.k8s/common/ingress.yml
+# kubectl get ingress
+# echo
+# echo
 
 # for (( i=5; i>0; i--)); do
 #     sleep 1 &

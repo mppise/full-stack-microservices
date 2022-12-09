@@ -1,0 +1,33 @@
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: Function
+metadata:
+  labels:
+    app.kubernetes.io/name: hello-world
+  name: hello-world
+spec:
+  source: |
+    module.exports = {
+      main: function(event, context) {
+        return 'Hello World'
+      }
+    }
+
+---
+apiVersion: gateway.kyma-project.io/v1beta1
+kind: APIRule
+metadata:
+  name: hello-world
+  labels:
+    app.kubernetes.io/name: hello-world
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      methods:
+        - GET
+      accessStrategies:
+        - handler: allow
+  host: hello-world.f976b46.kyma.ondemand.com
+  service:
+    name: hello-world
+    port: 80

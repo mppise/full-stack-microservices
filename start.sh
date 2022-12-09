@@ -12,8 +12,6 @@ kubectl apply -f 3.k8s/common/secret.yml
 kubectl get secrets
 # kubectl apply -f 3.k8s/common/ingress.yml
 # kubectl get ingress
-kubectl apply -f 3.k8s/common/kyma-apirules.yml
-kubectl get ingress
 
 kubectl apply -f 3.k8s/db/mongo-volumes.yml
 kubectl get pv

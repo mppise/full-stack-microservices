@@ -1,0 +1,20 @@
+kind: Secret
+apiVersion: v1
+# -----------------
+type: Opaque
+metadata:
+    name: github-secret
+data:
+    user: bXBwaXNl
+    password: bnVxaHVoLTNaeXZreS1rZWh3aWM=
+
+---
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: GitRepository
+metadata:
+  name: hello-world
+spec:
+  url: "https://github.com/kyma-project/examples.git"
+  auth:
+    type: "basic"
+    secretName: "github-secret"

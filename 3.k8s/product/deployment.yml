@@ -32,3 +32,27 @@ spec:
         - protocol: TCP
           port: 8080
           targetPort: 8080
+
+---
+apiVersion: gateway.kyma-project.io/v1beta1
+kind: APIRule
+metadata:
+  name: online-store-product-apis
+  labels:
+    app.kubernetes.io/name: online-store-product-apis
+spec:
+  service:
+    name: product-svc
+    port: 8080
+  host: productsapi.f976b46.kyma.ondemand.com
+  rules:
+    - path: (/|$)(.*)
+      methods:
+        - GET
+        - POST
+        - DELETE
+        - PUT
+        - OPTIONS
+      accessStrategies:
+        - handler: allow
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
