@@ -32,3 +32,8 @@ Once the Ionic app is built, a docker container is built that is based on [apach
 #### INGRESS
 [Nginx Ingress Controller](https://www.nginx.com/products/nginx/kubernetes-ingress-controller/) is the first layer that the user hits to access the Online Store as well as the APIs used by the web application. Both, the web app and the apis are deployed on 2 separate ingress resources.
 
+#### Kyma
+[Kyma on SAP BTP](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/606ec610ee4746c09d5d2bef5a85a124.html) is a runtime supported on SAP Business Technology Platform (SAP BTP) that allows SAP BTP developers to deploy Kubernetes workload on it. More information is available on [Kyma Project](https://kyma-project.io). 
+
+Once `kubectl` is pointing to your Kyma cluster via the `$KUBECONFIG` environment variable, deploying any existing kubernetes assets is just the same. The only difference to point here is that because Kyma comes in-built with Istio, your App or APIs must be exposed externally via a Custom Resouce Definition called **APIRule**.
+
