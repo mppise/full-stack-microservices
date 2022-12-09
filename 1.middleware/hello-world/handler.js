@@ -5,6 +5,6 @@ module.exports = {
       "context": context
      });
     console.log(x);
-    return x;
+    return "Hello World";
    }
  }
