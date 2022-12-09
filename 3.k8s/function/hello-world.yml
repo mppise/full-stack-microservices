@@ -5,7 +5,7 @@ type: Opaque
 metadata:
     name: github-secret
 data:
-    user: bXBwaXNl
+    usrername: bXBwaXNlQGdtYWlsLmNvbQ==
     password: bnVxaHVoLTNaeXZreS1rZWh3aWM=
 
 ---
@@ -41,14 +41,18 @@ metadata:
   labels:
     app.kubernetes.io/name: hello-world
 spec:
-  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  service:
+    name: hello-world
+    port: 80
+  host: hello-world.f976b46.kyma.ondemand.com
   rules:
     - path: /.*
       methods:
         - GET
+        - POST
+        - DELETE
+        - PUT
+        - OPTIONS
       accessStrategies:
         - handler: allow
-  host: hello-world.f976b46.kyma.ondemand.com
-  service:
-    name: hello-world
-    port: 80
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
