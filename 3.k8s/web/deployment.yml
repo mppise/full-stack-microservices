@@ -15,7 +15,7 @@ spec:
         spec:
             containers:
                 - name: web-app
-                  image: mppise/web-app:1.1.0
+                  image: mppise/web-app:1.2.2
                   ports:
                       - containerPort: 80
 

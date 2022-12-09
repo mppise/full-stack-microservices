@@ -33,7 +33,6 @@ spec:
                       value: mongodb-svc
 
 ---
-
 kind: Service
 apiVersion: v1
 # -----------------
