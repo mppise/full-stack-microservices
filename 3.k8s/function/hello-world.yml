@@ -20,7 +20,7 @@ spec:
   source:
     gitRepository:
       url: "https://github.com/mppise/full-stack-microservices.git"
-      baseDir: "1.middleware/hello-world/"
+      baseDir: "/1.middleware/hello-world/"
       reference: "main"
       auth:
         type: "basic"
