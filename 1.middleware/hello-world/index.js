@@ -1,5 +1,7 @@
 module.exports = {
    main: function(event, context) {
-     return 'Hello World'
+     return {
+      message: "Hello World"
+     }
    }
  }
