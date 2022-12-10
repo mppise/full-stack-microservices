@@ -1,8 +1,9 @@
 module.exports = {
    main: function(event, context) {
-     return JSON.stringify({
-      "event": event ? event : null,
-      "context": context ? context : null
-     });
+    console.log(event);
+    console.log(context);
+    event.extensions.response.status(200).send({
+      "a" : 1
+    });
    }
  }
