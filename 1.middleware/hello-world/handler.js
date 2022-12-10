@@ -9,6 +9,7 @@ module.exports = {
         "data" : event.data,
         "query" : event.query,
         "params" : event.params,
+        "extensions" : event.extensions
       }
     });
    }
