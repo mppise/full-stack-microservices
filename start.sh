@@ -36,6 +36,7 @@ kubectl apply -f 3.k8s/db/mongo-express.yml
 kubectl apply -f 3.k8s/product/
 kubectl apply -f 3.k8s/order/
 kubectl apply -f 3.k8s/web/
+kubectl apply -f 3.k8s/ping/
 kubectl get pods 
 
 # for c in {0..12}

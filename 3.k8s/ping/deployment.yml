@@ -12,15 +12,15 @@ data:
 apiVersion: serverless.kyma-project.io/v1alpha2
 kind: Function
 metadata:
-  name: hello-world
+  name: ping
   labels:
-    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/name: ping
 spec:
   runtime: nodejs16
   source:
     gitRepository:
       url: "https://github.com/mppise/full-stack-microservices.git"
-      baseDir: "/1.middleware/hello-world/"
+      baseDir: "/1.middleware/ping/"
       reference: "main"
       auth:
         type: "basic"
@@ -30,14 +30,14 @@ spec:
 apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
 metadata:
-  name: hello-world
+  name: ping
   labels:
-    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/name: ping
 spec:
   service:
-    name: hello-world
+    name: ping
     port: 80
-  host: hello-world.f976b46.kyma.ondemand.com
+  host: ping.f976b46.kyma.ondemand.com
   rules:
     - path: /.*
       methods:
