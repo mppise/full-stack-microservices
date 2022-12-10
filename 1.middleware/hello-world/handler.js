@@ -6,9 +6,9 @@ module.exports = {
     event.extensions.response.status(200).send({
       "context" : context,
       "event" : {
-        "body" : event.body,
-        "data" : event.data,
-        "params" : event.params
+        "body" : event.body || {},
+        "data" : event.data || {},
+        "params" : event.params || {}
       }
     });
    }
