@@ -1,10 +1,10 @@
 module.exports = {
    main: function(event, context) {
-    console.log(event.body);
-    console.log(event.data);
-    console.log(event.query);
-    console.log(event.params);
-    console.log(event.extensions);
+    console.log('body', JSON.stringify(event.body));
+    console.log('data', JSON.stringify(event.data));
+    console.log('query', JSON.stringify(event.query));
+    console.log('params', JSON.stringify(event.params));
+    console.log('extensions', JSON.stringify(event.extensions));
     event.extensions.response.status(200).send({
       "context" : context
       // "event" : {
