@@ -24,8 +24,8 @@ for c in {0..0}
       kubectl get pods
       echo
       echo
-      echo "Wait for $((10 - $c*5)) more seconds"
-      for (( i=10; i>0; i--)); do
+      echo "Wait for $((30 - $c*5)) more seconds"
+      for (( i=30; i>0; i--)); do
       sleep 1 &
       printf "  .. Resuming in $i ..\r"
       wait
@@ -37,7 +37,23 @@ kubectl apply -f 3.k8s/product/
 kubectl apply -f 3.k8s/order/
 kubectl apply -f 3.k8s/web/
 kubectl apply -f 3.k8s/ping/
-kubectl get pods 
+
+
+for c in {0..0}
+   do
+      clear
+      kubectl get configmaps
+      kubectl get secret
+      kubectl get pods
+      echo
+      echo
+      echo "Wait for $((10 - $c*5)) more seconds"
+      for (( i=10; i>0; i--)); do
+      sleep 1 &
+      printf "  .. Resuming in $i ..\r"
+      wait
+   done
+done
 
 # for c in {0..12}
 #    do

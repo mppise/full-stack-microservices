@@ -28,13 +28,28 @@ kubectl delete -f 3.k8s/db/mongo-volumes.yml
 # done
 
 kubectl delete -f 3.k8s/common/config.yml
-kubectl get configmaps
 echo 
 echo
 kubectl delete -f 3.k8s/common/secret.yml
-kubectl get secret
 echo
 echo
+
+for c in {0..0}
+   do
+      clear
+      kubectl get configmaps
+      kubectl get secret
+      kubectl get pods
+      echo
+      echo
+      echo "Wait for $((10 - $c*5)) more seconds"
+      for (( i=10; i>0; i--)); do
+      sleep 1 &
+      printf "  .. Resuming in $i ..\r"
+      wait
+   done
+done
+
 # kubectl delete -f 3.k8s/common/ingress.yml
 # kubectl get ingress
 # echo
