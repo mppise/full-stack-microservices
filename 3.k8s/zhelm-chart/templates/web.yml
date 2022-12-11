@@ -1,0 +1,54 @@
+kind: Deployment
+apiVersion: apps/v1
+# ----------------------
+metadata:
+    name: {{ .Release.Name }}-web-app
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: web-app
+    template:
+        metadata:
+            labels:
+                app: web-app
+        spec:
+            containers:
+                - name: web-app
+                  image: mppise/web-app:1.2.2
+                  ports:
+                      - containerPort: 80
+
+---
+kind: Service
+apiVersion: v1
+# -----------------
+metadata:
+    name: {{ .Release.Name }}-web-app-svc
+spec:
+    selector:
+        app: web-app
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 80
+
+---
+apiVersion: gateway.kyma-project.io/v1beta1
+kind: APIRule
+metadata:
+  name: {{ .Release.Name }}-online-store
+  labels:
+    app.kubernetes.io/name: online-store
+spec:
+  service:
+    name: {{ .Release.Name }}-web-app-svc
+    port: 80
+  host: online-store.f976b46.kyma.ondemand.com
+  rules:
+    - path: /.*
+      methods:
+        - GET
+      accessStrategies:
+        - handler: allow
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
