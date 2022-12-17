@@ -44,7 +44,7 @@ spec:
   service:
     name: order-svc
     port: 8080
-  host: ordersapi.f976b46.kyma.ondemand.com
+  host: ordersapi.d5c6411.kyma.ondemand.com
   rules:
     - path: (/|$)(.*)
       methods:

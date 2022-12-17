@@ -15,7 +15,7 @@ spec:
         spec:
             containers:
                 - name: web-app
-                  image: mppise/web-app:1.3.0
+                  image: mppise/web-app:1.3.1
                   ports:
                       - containerPort: 80
 
@@ -44,7 +44,7 @@ spec:
   service:
     name: web-app-svc
     port: 80
-  host: online-store.f976b46.kyma.ondemand.com
+  host: online-store.d5c6411.kyma.ondemand.com
   rules:
     - path: /.*
       methods:

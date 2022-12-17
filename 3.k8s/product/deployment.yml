@@ -44,7 +44,7 @@ spec:
   service:
     name: product-svc
     port: 8080
-  host: productsapi.f976b46.kyma.ondemand.com
+  host: productsapi.d5c6411.kyma.ondemand.com
   rules:
     - path: (/|$)(.*)
       methods:
