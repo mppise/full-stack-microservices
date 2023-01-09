@@ -9,23 +9,23 @@ export class DataService {
   constructor(private http: HttpClient) { } // constructor
 
   loadProducts() {
-    return this.http.post('https://productsapi.d5c6411.kyma.ondemand.com/prepare', {}).toPromise();
+    return this.http.post('https://productsapi.c-93b5b3a.kyma.ondemand.com/prepare', {}).toPromise();
   } // loadProducts
 
   emptyOrders() {
-    return this.http.post('https://ordersapi.d5c6411.kyma.ondemand.com/prepare', {}).toPromise();
+    return this.http.post('https://ordersapi.c-93b5b3a.kyma.ondemand.com/prepare', {}).toPromise();
   } // emptyOrders
 
   getProducts() {
-    return this.http.get('https://productsapi.d5c6411.kyma.ondemand.com').toPromise();
+    return this.http.get('https://productsapi.c-93b5b3a.kyma.ondemand.com').toPromise();
   } // getProducts
 
   getOrders() {
-    return this.http.get('https://ordersapi.d5c6411.kyma.ondemand.com').toPromise();
+    return this.http.get('https://ordersapi.c-93b5b3a.kyma.ondemand.com').toPromise();
   } // getOrders
 
   submitOrder(order) {
-    return this.http.post('https://ordersapi.d5c6411.kyma.ondemand.com', order).toPromise();
+    return this.http.post('https://ordersapi.c-93b5b3a.kyma.ondemand.com', order).toPromise();
   } // submitOrder
 
 } // DataService

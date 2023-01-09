@@ -2,36 +2,36 @@ kind: Deployment
 apiVersion: apps/v1
 # ----------------------
 metadata:
-    name: web-app
+  name: web-app
 spec:
-    replicas: 2
-    selector:
-        matchLabels:
-            app: web-app
-    template:
-        metadata:
-            labels:
-                app: web-app
-        spec:
-            containers:
-                - name: web-app
-                  image: mppise/web-app:1.3.1
-                  ports:
-                      - containerPort: 80
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+        - name: web-app
+          image: mppise/web-app:1.3.2
+          ports:
+            - containerPort: 80
 
 ---
 kind: Service
 apiVersion: v1
 # -----------------
 metadata:
-    name: web-app-svc
+  name: web-app-svc
 spec:
-    selector:
-        app: web-app
-    ports:
-        - protocol: TCP
-          port: 80
-          targetPort: 80
+  selector:
+    app: web-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
 
 ---
 apiVersion: gateway.kyma-project.io/v1beta1
@@ -44,7 +44,7 @@ spec:
   service:
     name: web-app-svc
     port: 80
-  host: online-store.d5c6411.kyma.ondemand.com
+  host: online-store.c-93b5b3a.kyma.ondemand.com
   rules:
     - path: /.*
       methods:

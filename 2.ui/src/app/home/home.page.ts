@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from "../data.service";
 import { Router } from "@angular/router";
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
