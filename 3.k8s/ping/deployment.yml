@@ -11,6 +11,7 @@ data:
 ---
 apiVersion: serverless.kyma-project.io/v1alpha2
 kind: Function
+# -----------------
 metadata:
   name: ping
   labels:
@@ -29,6 +30,7 @@ spec:
 ---
 apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
+# -----------------
 metadata:
   name: ping
   labels:
