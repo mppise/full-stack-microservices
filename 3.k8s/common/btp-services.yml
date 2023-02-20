@@ -1,0 +1,21 @@
+kind: ServiceInstance
+apiVersion: services.cloud.sap.com/v1alpha1
+# -----------------
+metadata:
+  name: btp-audit-log-instance
+  namespace: default
+spec:
+  serviceOfferingName: auditlog-api
+  servicePlanName: default
+  externalName: btp-audit-log-instance
+
+---
+kind: ServiceBinding
+apiVersion: services.cloud.sap.com/v1alpha1
+metadata:
+  name: btp-audit-log-binding
+  namespace: default
+spec:
+  serviceInstanceName: btp-audit-log-instance
+  externalName: btp-audit-log-binding
+  secretName: btp-audit-log-binding

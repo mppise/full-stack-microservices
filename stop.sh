@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo Setting up KUBECONFIG for Kyma on SAP BTP
-export KUBECONFIG=~/Code/FullstackMicroservices/4.kyma/kubeconfig.yaml
+export KUBECONFIG=~/Code/FullStackMicroservices/4.kyma/kubeconfig.yaml
+echo $KUBECONFIG
 
 # clear
 kubectl delete -f 3.k8s/ping/

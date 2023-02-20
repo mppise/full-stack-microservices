@@ -37,7 +37,7 @@ spec:
   service:
     name: ping
     port: 80
-  host: ping.f976b46.kyma.ondemand.com
+  host: ping.c-32f130e.kyma.ondemand.com
   rules:
     - path: /.*
       methods:
