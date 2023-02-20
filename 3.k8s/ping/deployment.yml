@@ -16,7 +16,7 @@ metadata:
   labels:
     app.kubernetes.io/name: ping
 spec:
-  runtime: nodejs16
+  runtime: nodejs14
   source:
     gitRepository:
       url: "https://github.com/mppise/full-stack-microservices.git"
