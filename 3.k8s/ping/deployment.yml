@@ -27,12 +27,22 @@ spec:
         type: "basic"
         secretName: "github-secret"
   env:
-    - name: CREDSTORE
-      secret: 
-        secretName: credstore
-  - name: ALERT_NOTIFICATION
-        secret: 
-          secretName: alert-notification
+    - name: CREDSTORE_URL
+      valueFrom:
+        secretKeyRef:
+          name: credstore
+          key: url
+    - name: CREDSTORE_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: credstore
+          key: username
+    - name: CREDSTORE_CERTIFICATE
+      valueFrom:
+        secretKeyRef:
+          name: credstore
+          key: certificate
+
 ---
 apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
