@@ -4,7 +4,7 @@ module.exports = {
     let credstore = {};
     Object.keys(process.env).forEach((e, i) => {
       if (e.indexOf('CREDSTORE') >= 0)
-        credstore[e] = Buffer.from(process.env[e], 'base64').toString('utf-8');
+        credstore[e] = process.env[e];
     });
     res.status(200).send({
       "date": new Date(),
