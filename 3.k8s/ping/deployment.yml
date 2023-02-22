@@ -26,6 +26,12 @@ spec:
       auth:
         type: "basic"
         secretName: "github-secret"
+  env:
+    - name: ALERT_NOTIF_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: alert-notification
+          key: client_id
 
 ---
 apiVersion: gateway.kyma-project.io/v1beta1

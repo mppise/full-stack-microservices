@@ -1,9 +1,9 @@
 module.exports = {
   main: function (event, context) {
-    event.extensions.response.status(200).send({
+    const res = event.extensions.response;
+    res.status(200).send({
       "date": new Date(),
-      "data": event || {},
-      "context": context || {}
+      "env": JSON.stringify(process.env)
     });
   }
 }
