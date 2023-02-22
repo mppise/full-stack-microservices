@@ -1,14 +1,13 @@
 module.exports = {
   main: function (event, context) {
     const res = event.extensions.response;
-    let credstore = {};
-    Object.keys(process.env).forEach((e, i) => {
-      if (e.indexOf('CREDSTORE') >= 0)
-        credstore[e] = JSON.parse(process.env[e]);
-    });
     res.status(200).send({
       "date": new Date(),
-      "env": credstore
+      "credstore": {
+        "username": process.env['CREDSTORE_USERNAME'],
+        "url": process.env['CREDSTORE_URL'],
+        "encryption": JSON.parse(process.env['CREDSTORE_ENCRYPTION'])
+      }
     });
   }
 }
