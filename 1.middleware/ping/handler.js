@@ -4,7 +4,7 @@ module.exports = {
     let credstore = {};
     Object.keys(process.env).forEach((e, i) => {
       if (e.indexOf('CREDSTORE') >= 0)
-        credstore[e] = process.env[e];
+        credstore[e] = JSON.parse(process.env[e]);
     });
     res.status(200).send({
       "date": new Date(),

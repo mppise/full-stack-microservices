@@ -37,11 +37,11 @@ spec:
         secretKeyRef:
           name: credstore
           key: username
-    - name: CREDSTORE_CERTIFICATE
+    - name: CREDSTORE_ENCRYPTION
       valueFrom:
         secretKeyRef:
           name: credstore
-          key: certificate
+          key: encryption
 
 ---
 apiVersion: gateway.kyma-project.io/v1beta1
