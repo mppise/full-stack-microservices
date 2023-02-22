@@ -2,6 +2,7 @@ const jose = require('node-jose');
 const axios = require('axios');
 const credentials = {
    "username": process.env['CREDSTORE_USERNAME'],
+   "password": process.env['CREDSTORE_PASSWORD'],
    "url": process.env['CREDSTORE_URL'],
    "encryption": JSON.parse(process.env['CREDSTORE_ENCRYPTION'])
 };
