@@ -37,6 +37,11 @@ spec:
         secretKeyRef:
           name: credstore
           key: username
+    - name: CREDSTORE_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: credstore
+          key: password
     - name: CREDSTORE_ENCRYPTION
       valueFrom:
         secretKeyRef:
