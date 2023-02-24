@@ -72,3 +72,23 @@ spec:
       accessStrategies:
         - handler: allow
   gateway: kyma-gateway.kyma-system.svc.cluster.local
+
+---
+apiVersion: eventing.kyma-project.io/v1alpha2
+kind: Subscription
+# -----------------
+metadata:
+  name: ping-sub
+  namespace: default
+spec:
+  sink: 'http://ping.default.svc.cluster.local'
+  filter:
+    filters:
+      - eventSource:
+          property: source
+          type: exact
+          value: ''
+        eventType:
+          property: type
+          type: exact
+          value: sap.kyma.custom.ping.key.created.v1
