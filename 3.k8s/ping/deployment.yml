@@ -74,7 +74,7 @@ spec:
   gateway: kyma-gateway.kyma-system.svc.cluster.local
 
 ---
-apiVersion: eventing.kyma-project.io/v1alpha2
+apiVersion: eventing.kyma-project.io/v1alpha1
 kind: Subscription
 # -----------------
 metadata:
