@@ -6,7 +6,7 @@ module.exports = {
         // console.log("write", resp);
         credstore.readKey('mpp', 'key1').then((resp) => {
           console.log("read", resp);
-          return resp;
+          return;
         }).catch((err) => console.log(err));
       }).catch((err) => console.log(err));
   }
