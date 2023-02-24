@@ -1,6 +1,7 @@
 module.exports = {
   main: function (event, context) {
     let res = event.extensions.response;
+    console.log(event.data);
     const credstore = require('./credstore');
     credstore.writeKey('mpp', 'key1', { "date": new Date(), "data": event.data })
       .then((resp) => {
