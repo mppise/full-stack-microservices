@@ -119,29 +119,3 @@ const deleteKeyFromStore = (nameSpace, keyName) => {
 exports.readKey = readKeyFromStore;
 exports.writeKey = writeKeyToStore;
 exports.deleteKey = deleteKeyFromStore;
-
-/*
-
-//  --------------------------
-//   **** Unit Tests ****
-//  --------------------------
-_joseKey("public").then((joseKey) => console.log(joseKey));
-
-_decryptPayload("eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjcyNzA1NTc4fQ.eNG05KyUcednu36KSa3Hj3Zj121T5556ZR0EdOj4YwfboYxzmHUEQk0vVV-AC4t4qgw3k8SgZUgYCUxX1EJdahsg8yNKYteRJEygQN9ogRVWryq5asYdrHOLbCQ7aVfgf3Oi44eG6WK0FZ0h7_LO-0e9RHD0galIUjDIm2Y3l4rnaTL1C6CDtTqxhBBoloWiVFupnb_nnX6vcgZ0mO8uqBC6PUaqA6hDwAwVOoEhhTiglgUR9rv_QOQYFKTU0dkt-knF-vij80GL4caCn46VWMv8xGjlDKS_KXDsmFCn9Sv_fPbJCeTnOks10KvHrx3fgR9AMjUCtgmvbWh0HVJpaP0Ly1z8-LsihStmwOdxWc7GsIUZW29QVN0TkXQtLuSx-VmL_7JKMb0RfWlkFt3yO5n4LUdSlOP0Cbbob6GIHv2deCyLc6VaqfkKlP5KJJK2Fn4PPIUkNPO1sdSue0JhZWSsuNOARvIVcrGvilSeXhJpY8jTRX-ZmT2VvbVgcGOS.uFGemLzk5PZZZvR4.Majc7RDEh-uOugGfujg9q9jprVxME0-7kN50H02sOKdojLB2lmIOC2lH4v7VbEg-QVUpfTwiY9J5fACOsQb6Hv0H4MvxlYwPVc3s3gJgiFZhsHnYcwQPAP2E8srjQaRG-sKNVZMQNpOJZ9jk3mRMYzfR-siO9aErPIYXGCDLvyiISM4zHZ7eJ_MNIVPssMgKuWysEIskhblToMRrHN_kkUKpOJICElhZIa3UVsj1QUI-zpqj-E4JU-pHrYFCMsK1j__RMKuGXbeE0Hf-9byKEd7_NfIVJw13-ew.LlePWDX5WHBMLGzD0Yeztg")
-   .then((payload) => {
-      console.log(payload);
-   }).catch((err) => console.log(err));
-
-_encryptPayload({
-   name: "key2",
-   value: jose.util.randomBytes(32).toString("base64")
-}).then((payload) => {
-   console.log(payload);
-}).catch((err) => console.log(err));
-
-let keyName = "key5"
-writeKeyToStore(keyName);
-readKeyFromStore(keyName);
-deleteKeyFromStore(keyName);
-
-*/

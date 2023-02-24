@@ -7,17 +7,12 @@ module.exports = {
         console.log("write", resp);
         credstore.readKey('mpp', 'key1').then((resp) => {
           console.log("read", resp);
+          res.status(200);
           return {
             "date": new Date(),
             "resp": resp
           };
         }).catch((err) => console.log(err));
-      }).catch((err) => {
-        console.log(err);
-        // res.send({
-        //   "date": new Date(),
-        //   "err": err
-        // });
-      });
+      }).catch((err) => console.log(err));
   }
 }
